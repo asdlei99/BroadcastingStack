@@ -20,7 +20,7 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('..'))
-
+from recommonmark.transform import AutoStructify
 from recommonmark.parser import CommonMarkParser
 
 source_parsers = {
@@ -36,7 +36,7 @@ source_parsers = {
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = []
+extensions = ['sphinx.ext.mathjax']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -172,3 +172,11 @@ texinfo_documents = [
      'Miscellaneous'),
 ]
 
+github_doc_root = 'https://github.com/rtfd/recommonmark/tree/master/doc/'
+def setup(app):
+    app.add_config_value('recommonmark_config', {
+            'url_resolver': lambda url: github_doc_root + url,
+            'auto_toc_tree_section': 'Contents',
+            'enable_eval_rst': True,
+            }, True)
+    app.add_transform(AutoStructify)
