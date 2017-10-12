@@ -12,12 +12,6 @@ BUILDDIR      = build
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-html:
-	@echo "link README.md to $(SOURCEDIR)/readme.md"
-	@ln -s -f ../../README.md "$(SOURCEDIR)/readme.md"
-	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-	@rm "$(SOURCEDIR)/readme.md"
-
 .PHONY: help Makefile
 
 # Catch-all target: route all unknown targets to Sphinx using the new
