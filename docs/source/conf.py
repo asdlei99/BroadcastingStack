@@ -20,12 +20,8 @@
 
 import os
 import sys
-import distutils.sysconfig
 from recommonmark.transform import AutoStructify
 from recommonmark.parser import CommonMarkParser
-
-site_package_path = distutils.sysconfig.get_python_lib()
-sys.path.insert(0, os.path.join(site_package_path, 'sphinxcontrib/unicode_ids'))
 
 # -- General configuration ------------------------------------------------
 
@@ -36,7 +32,11 @@ sys.path.insert(0, os.path.join(site_package_path, 'sphinxcontrib/unicode_ids'))
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.mathjax', 'unicode_ids', 'sphinx_markdown_tables']
+extensions = [
+    'sphinx.ext.mathjax', 
+    'sphinxcontrib.unicode_ids.unicode_ids', 
+    'sphinx_markdown_tables'
+]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
