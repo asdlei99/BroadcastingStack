@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     install_requires=[
-        "markdown",
+        "Markdown",
         "sphinx-rtd-theme",
         "recommonmark",
         "unicode_ids",
